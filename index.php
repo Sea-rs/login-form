@@ -4,6 +4,8 @@
   /**
    * TODO
    * //データベースエラー発生時のPHPファイルを作成
+   * //top.phpを入力するとtopいけちゃう問題
+   * //userIDからDBないのパスを取得し、平文化、一致をするか確認
    */
 
   $_SESSION['token'] = $_SESSION['token'] ?? '';
@@ -27,8 +29,10 @@
   $_SESSION['token'] = $post_key;
 
   //SQLインジェクション脆弱性
-  //$query = $mysql->query('SELECT ID FROM user_info WHERE ID="'. $_POST['login_id'] .'"');
-  //$row = $query->fetch();
+  /*
+  $query = $mysql->query('SELECT ID FROM user_info WHERE ID="'. $_POST['login_id'] .'"');
+  $row = $query->fetch();
+  */
 
   try {
     $query = $mysql->prepare('SELECT ID FROM user_info WHERE ID=?');
@@ -50,7 +54,6 @@
     <title>ようこそ | Weather*</title>
   </head>
   <body>
-    <header></header>
     <main>
       <form class="login-Form" action="/index.php" method="POST">
         <p>利用する際はログインしてください。</p>

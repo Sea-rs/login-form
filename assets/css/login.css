@@ -12,6 +12,10 @@ input {
   outline: none;
 }
 
+.sw-errorMsg {
+  color: #ce7272;
+}
+
 .login-Form {
   display: -webkit-box;
   display: -ms-flexbox;
